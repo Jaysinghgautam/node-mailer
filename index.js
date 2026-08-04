@@ -8,7 +8,7 @@ dotenv.config();
 const app = express();
 app.use(cors(
    {
-    origin: "http://localhost:5173", // Replace
+    origin: ["http://localhost:5173", "https://jaysinghgautam.vercel.app"], // Replace
     methods: ["GET", "POST"],
     credentials: true,
    }
