@@ -8,6 +8,10 @@ import connectCloudinary from "./config/cloudinary.js";
 import sendMail from "./routes/emailSend.js";
 import adminRouter from "./routes/adminRoute.js";
 import imageRouter from "./routes/gallaryRoute.js";
+import productRouter from "./routes/productRoute.js";
+import blogRouter from "./routes/blogRoute.js";
+import dns from 'dns';
+dns.setServers(['8.8.8.8', '1.1.1.1']);
 
 dotenv.config();
 
@@ -32,7 +36,9 @@ app.use(express.urlencoded({ extended: true }));
 // API Endpoints
 app.use("/api/email", sendMail);
 app.use("/api/admin", adminRouter);
-app.use("/api/gallery", imageRouter); // Postman URL will be: http://localhost:3000/api/gallery/addimage
+app.use("/api/gallery", imageRouter);   // http://localhost:3000/api/gallery/addimage
+app.use("/api/products", productRouter); // http://localhost:3000/api/products/list
+app.use("/api/blogs", blogRouter);       // http://localhost:3000/api/blogs/list
 
 app.get("/", (req, res) => {
   res.send("Welcome to Nature Harvest API");
